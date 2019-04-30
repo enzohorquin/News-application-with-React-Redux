@@ -2,7 +2,7 @@ import React from 'react';
 import './Stories.css'
 import  Story from './Story';
 import { connect } from 'react-redux';
-import { doArchiveStory } from '../actions/archive' ;
+
 import { getReadableStories } from '../selectors/story'; 
 
 
@@ -36,7 +36,7 @@ export const Stories = (props) => {
         <div className="stories">
           <StoriesHeader columns={COLUMNS} />
           {   historias.map( el => {
-             return <Story key={el.objectID} story={el} columns={COLUMNS} onArchive={props.onArchive} />
+             return <Story key={el.objectID} story={el} columns={COLUMNS}  />
           })
 
      }
@@ -65,11 +65,9 @@ const StoriesHeader = ({columns}) => (
     return  {stories: getReadableStories(state) }; 
  }
 
- const mapDispatchToProps = dispatch => ({
-   onArchive: id => dispatch(doArchiveStory(id))
- })
 
 
-export default connect (mapStateToProps,mapDispatchToProps)(Stories) ;
+
+export default connect (mapStateToProps)(Stories) ;
 
 
