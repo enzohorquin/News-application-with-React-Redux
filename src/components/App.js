@@ -2,10 +2,10 @@ import React from 'react';
 import Stories from './Stories'; 
 import './App.css'
 
-export const App = (props) => (
+export const App = () => (
 
     <div className="app">
-        <Stories stories={props.stories} onArchive={props.onArchive} />
+        <Stories />
     
     </div>
 );

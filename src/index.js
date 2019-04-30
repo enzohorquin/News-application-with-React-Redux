@@ -3,18 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { store } from './store/index'; 
-import { getReadableStories } from './selectors/story'
-import { doArchiveStory } from './actions/archive'
+import { store } from './store/index';  
+import { Provider } from 'react-redux'; 
 
-const render = () => {
-ReactDOM.render(<App stories={getReadableStories(store.getState())} onArchive={(objectID)=>{ 
-  
-    store.dispatch(doArchiveStory(objectID))}
-}/>, document.getElementById('root'));
-}
-store.subscribe(render);
-render();
+
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>
+, document.getElementById('root'));
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
