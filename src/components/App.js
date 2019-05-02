@@ -1,13 +1,15 @@
 import React from 'react';
-import Stories from './Stories'; 
-import './App.css'
+import './App.css';
 
-export const App = () => (
+import Stories from './Stories';
+import SearchStories from './SearchStories';
 
-    <div className="app">
-        <Stories />
-    
+const App = () =>
+  <div className="app">
+    <div className="interactions">
+      <SearchStories />
     </div>
-);
+    <Stories />
+  </div>
 
-export default App; 
+export default App;
